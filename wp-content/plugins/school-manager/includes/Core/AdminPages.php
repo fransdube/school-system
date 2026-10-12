@@ -10,11 +10,19 @@ class AdminPages {
         add_menu_page(
             'School Manager',
             'School Manager',
-            'manage_options', // super admin capability
+            'manage_options',
             'school-manager',
             [__CLASS__, 'render_schools_page'],
             'dashicons-building',
             3
+        );
+        add_submenu_page(
+            'school-manager',
+            'Subscriptions',
+            'Subscriptions',
+            'manage_options',
+            'school-manager-subscriptions',
+            [__CLASS__, 'render_subscriptions_page']
         );
     }
 
@@ -56,5 +64,9 @@ class AdminPages {
             echo '</tr>';
         }
         echo '</tbody></table></div>';
+    }
+
+    public static function render_subscriptions_page() {
+        echo '<div class="wrap"><h1>Subscriptions</h1><p>Super Admin subscription management goes here.</p></div>';
     }
 }

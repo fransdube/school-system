@@ -5,6 +5,7 @@ class Bootstrap {
     public static function init() {
         \SchoolManager\Database\Migrator::run();
 
+        \SchoolManager\Core\Security::init();
         \SchoolManager\Core\SM_Roles::init();
         \SchoolManager\Core\SM_Upload::init();
         \SchoolManager\Core\SM_Router::init();

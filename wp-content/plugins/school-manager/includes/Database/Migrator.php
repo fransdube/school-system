@@ -2,7 +2,7 @@
 namespace SchoolManager\Database;
 
 class Migrator {
-    const DB_VERSION = '1.0.0';
+    const DB_VERSION = '1.0.2';
 
     public static function run() {
         $installed_version = get_option( 'sm_db_version' );
@@ -42,7 +42,7 @@ class Migrator {
             $plan_id = $wpdb->insert_id;
 
             // basic features
-            $features = ['dashboard', 'general_settings'];
+            $features = ['dashboard', 'general_settings', 'academic', 'students', 'employees', 'attendance', 'fees', 'accounts', 'timetable', 'homework', 'exams', 'payroll', 'messaging', 'certificates', 'reports'];
             foreach ($features as $f) {
                 $wpdb->insert("{$prefix}plan_features", ['plan_id' => $plan_id, 'feature_key' => $f]);
             }
